@@ -27,6 +27,8 @@ export const SNAPSHOT_SUBGRAPH_URL = {
   '250': 'https://api.thegraph.com/subgraphs/name/snapshot-labs/snapshot-fantom'
 };
 
+export const SNAPSHOT_SCORE_API = 'https://score.blocksscan.io/api/scores';
+
 const ENS_RESOLVER_ABI = [
   'function text(bytes32 node, string calldata key) external view returns (string memory)'
 ];
@@ -150,7 +152,7 @@ export async function getScores(
   network: string,
   addresses: string[],
   snapshot: number | string = 'latest',
-  scoreApiUrl = 'https://score.snapshot.org/api/scores'
+  scoreApiUrl = SNAPSHOT_SCORE_API
 ) {
   try {
     const params = {
